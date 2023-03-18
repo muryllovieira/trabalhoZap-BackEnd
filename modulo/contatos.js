@@ -575,14 +575,18 @@ const getContato = function (telefoneContato) {
   let jsonContato = {}
 
   contatos['whats-users'].forEach(function (usuario) {
-    if (contatos['whats-users'].number == telefoneContato) {
+    if (contatos.number == telefoneContato) {
       usuario.contacts.forEach(function (contato) {
         jsonContato.name = contato.name
         jsonContato.description = contato.description
         jsonContato.image = contato.image
       })
     }
-    return jsonContato
   })
-}                       
+  if (jsonContato == undefined) {
+    return false
+  } else {
+    return jsonContato
+  }
+}
 console.log(getContato('11987876567'));
