@@ -573,20 +573,20 @@ const contatos = {
 const getContato = function (telefoneContato) {
 
   let jsonContato = {}
+  let status = false
 
-  contatos['whats-users'].forEach(function (usuario) {
-    if (contatos.number == telefoneContato) {
-      usuario.contacts.forEach(function (contato) {
-        jsonContato.name = contato.name
-        jsonContato.description = contato.description
-        jsonContato.image = contato.image
-      })
+  contatos["whats-users"].forEach(function (usuario) {
+    if (usuario.number == telefoneContato) {
+      jsonContato.contacts = usuario.contacts
+      status = true
     }
   })
-  if (jsonContato == undefined) {
-    return false
-  } else {
+  if (status == true) {
     return jsonContato
+  } else {
+    return status
   }
 }
-console.log(getContato('11987876567'));
+module.exports = {
+  getContato
+}
