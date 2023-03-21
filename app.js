@@ -37,7 +37,7 @@ app.get('/v1/whatsapp/telefone/:telefoneContato', cors(), async function (reques
 
     if (telefone == '' || telefone == undefined || isNaN(telefone)) {
         statusCode = 400;
-        dadosContato.message = 'Não foi possivel processar, pois os dados de entrada (uf) que foi enviado não corrensponde ao que foi exigido. Confira o valor, pois não pode ser vazio, precisa ser caracteres e ter 2 dígitos.';
+        dadosContato.message = 'Não foi possivel processar, pois os dados de entrada (telefoneContato) que foi enviado não corrensponde ao que foi exigido. Confira o valor, pois não pode ser vazio, precisa ser caracteres e ter 2 dígitos.';
     } else {
         //Chama a função para retornar os dados do estado
         let contato = contatos.getContato(telefone)
