@@ -577,7 +577,7 @@ const getContato = function (telefoneContato) {
 
   contatos["whats-users"].forEach(function (usuario) {
     if (usuario.number == telefoneContato) {
-      jsonContato.contacts = usuario.contacts
+      jsonContato = usuario.contacts
       status = true
     }
   })
